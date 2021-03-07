@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>
+  <div class="alert alert-danger" *ngIf="error | async; else elseBlock">
+    {{ error | async }}
+  </div>
+  <ng-template #elseBlock>
+    Login
+  </ng-template>
+</h1>
+<div mat-dialog-content>
+  <form [formGroup]="loginForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" [errorStateMatcher]="matcher" required>
+      <mat-error>Please enter a valid email address</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password" required>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onSubmit()">Login</button>
+  <button mat-button (click)="onCancel()">Cancel</button>
+</div>
+

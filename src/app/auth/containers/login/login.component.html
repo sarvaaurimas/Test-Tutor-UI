@@ -1,0 +1,60 @@
+<app-model-container>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <form [formGroup]="registerForm">
+          <h1 class="title">Let's get started</h1>
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" required>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" required>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" [errorStateMatcher]="matcher" required>
+            <mat-error>Please enter a valid email address</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Curriculum</mat-label>
+            <mat-select formControlName="curriculum" required>
+              <mat-option *ngFor="let curr of curriculum" [value]="curr">
+                {{ curr }}
+              </mat-option>
+            </mat-select>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Roles</mat-label>
+            <mat-select formControlName="role" required>
+              <mat-option *ngFor="let role of roles" [value]="role">
+                {{ role }}
+              </mat-option>
+            </mat-select>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="register()">Get Exclusive Access</button>
+          <div class="hr-sect">or</div>
+          <button mat-stroked-button color="primary" (mousedown)="login()">Login</button>
+        </form>
+      </div>
+      <div class="col-4">
+        <div class="content">
+          <img src="./assets/images/5891.jpg">
+          <div class="content-text">
+            <h1>
+              Achieve a 7 in IB Mathematics with personalised study plans
+            </h1>
+            <p>
+              Our artificial intelligence built specifically for IB Mathematics can determine the optimal path for you to achieve the best grades
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-model-container>
